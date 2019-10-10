@@ -31,7 +31,7 @@ import 'github-markdown-css'
 export default {
   asyncData({ route: { params } }) {
     return axios
-      .get(`http://approvli.herokuapp.com/checks/${params.slug}`)
+      .get(`https://approvli.herokuapp.com/checks/${params.slug}`)
       .then(function({ data }) {
         return { data }
       })
