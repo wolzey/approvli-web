@@ -33,6 +33,7 @@ export default {
     return axios
       .get(`https://approvli.herokuapp.com/checks/${params.slug}`)
       .then(function({ data }) {
+        console.log(data)
         return { data }
       })
       .catch(function(error) {
