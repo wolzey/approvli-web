@@ -1,3 +1,4 @@
+
 <template>
   <div class="container">
     <div class="markdown-body">
@@ -26,14 +27,12 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import axios from 'axios'
-import 'github-markdown-css'
 
 export default {
   asyncData({ params: { slug } }) {
     return axios
       .get(`https://approvli.herokuapp.com/checks/${slug}`)
       .then(function({ data }) {
-        console.log(data)
         return { data }
       })
       .catch(function(error) {
@@ -47,7 +46,11 @@ export default {
     return {
       approved: false,
       comment: '',
-      done: false
+      done: false,
+      owner: {},
+      data: {
+        pull_request: {}
+      }
     }
   },
   methods: {
