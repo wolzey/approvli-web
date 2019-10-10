@@ -29,9 +29,9 @@ import axios from 'axios'
 import 'github-markdown-css'
 
 export default {
-  asyncData({ route: { params } }) {
+  asyncData({ params: { slug } }) {
     return axios
-      .get(`https://approvli.herokuapp.com/checks/${params.slug}`)
+      .get(`https://approvli.herokuapp.com/checks/${slug}`)
       .then(function({ data }) {
         console.log(data)
         return { data }
